@@ -1,0 +1,35 @@
+# Ignore Python virtual environments
+venv/
+*.pyc
+__pycache__/
+
+# Django specific ignores
+*.log
+*.pot
+*.mo
+*.DS_Store
+db.sqlite3
+.env
+
+# Node.js / React specific ignores
+node_modules/
+build/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+.vscode/ # VS Code specific settings
+
+# IDE specific ignores
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS specific (if applicable)
+.DS_Store
+
+# Windows specific (if applicable)
+Thumbs.db
+
+firebase-adminsdk.json
