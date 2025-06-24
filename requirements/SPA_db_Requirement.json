@@ -1,0 +1,64 @@
+Phase 2: SPA_db_Requirement.json
+
+1.  delete existing table tbl_menu_items. 
+2.  create a new table structure as per the requirements mentioned below, and then create a detailed step by step instruction set to implement the new table structure in Postgres, and how to connect it with the backend API, and how to populate the menu items from the database (tbl_menu_items) using Django REST Framework.
+
+3.  Once the new table structure is created, create navbar menu based on Material-UI and Bootstrap 5.3, as per the need of the SPA, consider adding columns to tables as per the need for Google SEO, and GEO, and for analytical purposes.
+
+refer Phase 1: https://gemini.google.com/app/4fc230e712859a2e: for detailed tech stack and implementation details.
+List of online tools:
+https://docs.google.com/spreadsheets/d/1IEpj8WyLeSMtSu5zelosOgPt5UMwnV_S47EWyvpyxIw/edit?usp=sharing
+
+// Database Structure for tbl_menu_items
+Table: tbl_menu_items
+Columns: [do optimize table structure for a comprehensive menu system in a Single Page Application (SPA) using Django REST Framework and PostgreSQL.]
+- id (Primary Key)
+- parent_id (Foreign Key to self, for nested menus)
+- title (Menu item title)
+- url (Menu item URL)
+- is_active (Boolean, indicates if the menu item is active)
+- is_trending (Boolean, indicates if the menu item is trending)
+- is_promoted (Boolean, indicates if the menu item is promoted)
+- tool_domain (String, indicates the domain of the tool/convertor)
+- created_at (Timestamp, when the menu item was created)
+- updated_at (Timestamp, when the menu item was last updated)
+- seo_title (String, SEO title for the menu item)
+- seo_description (String, SEO description for the menu item)   
+- geo_location (String, geographical location for the menu item)
+- analytics_data (JSON, for storing analytical data related to the menu item)
+- icon (String, optional icon class for the menu item)  
+- is_visible (Boolean, indicates if the menu item is visible in the sidebar)
+- is_external (Boolean, indicates if the menu item links to an external site)   
+- target (String, specifies the target attribute for the link, e.g., "_blank" for new tab)
+- order (Integer, to define the order of the menu items)
+- created_by (Foreign Key to user, indicates who created the menu item)
+- updated_by (Foreign Key to user, indicates who last updated the menu item)
+- is_featured (Boolean, indicates if the menu item is featured)
+- is_hidden (Boolean, indicates if the menu item is hidden from the public)
+- custom_css (String, optional custom CSS class for the menu item)  
+- custom_js (String, optional custom JavaScript for the menu item)
+- is_accessible (Boolean, indicates if the menu item is accessible to all users)
+- access_level (String, indicates the access level required to view the menu item, e.g., "public", "registered", "admin")
+- is_searchable (Boolean, indicates if the menu item should be indexed by search engines)
+- is_cacheable (Boolean, indicates if the menu item can be cached for performance)
+- is_archived (Boolean, indicates if the menu item is archived)
+- archived_at (Timestamp, when the menu item was archived)
+- archived_by (Foreign Key to user, indicates who archived the menu item)
+- is_deleted (Boolean, indicates if the menu item is deleted)
+- deleted_at (Timestamp, when the menu item was deleted)
+- deleted_by (Foreign Key to user, indicates who deleted the menu item)
+- is_draft (Boolean, indicates if the menu item is in draft state)
+- draft_version (Integer, version number of the draft)  
+- is_published (Boolean, indicates if the menu item is published)
+- published_at (Timestamp, when the menu item was published)
+- published_by (Foreign Key to user, indicates who published the menu item)
+- is_scheduled (Boolean, indicates if the menu item is scheduled for future publication)
+- scheduled_at (Timestamp, when the menu item is scheduled for publication) 
+- scheduled_by (Foreign Key to user, indicates who scheduled the menu item)
+- is_featured_image (Boolean, indicates if the menu item has a featured image)
+- featured_image_url (String, URL of the featured image)    
+- is_video (Boolean, indicates if the menu item has an associated video)
+- video_url (String, URL of the associated video)
+
+
+refer Phase 1: https://gemini.google.com/app/4fc230e712859a2e: for detailed tech stack and implementation details.

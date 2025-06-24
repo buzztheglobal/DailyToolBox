@@ -1,0 +1,9 @@
+Implemented Phase 1 - https://gemini.google.com/app/4fc230e712859a2e
+now update attached links (online Tools : https://docs.google.com/spreadsheets/d/1xUexeck8t9BYzWDISQgnw-toXuHyE_EaxVORAo1ciZs/edit?usp=sharing) sheet - "SPA phases"; and refer Column Feature Description and list all those features that have been implemented in Phase 1, and can be marked as completed.
+
+for feature "Core Tool/Converter Functionality" in sheet "SPA phases"[refer attached sheet] mentioned Phase 1 - https://gemini.google.com/app/4fc230e712859a2e
+create a list of sub tasks that are required to implement this feature, and then create a detailed step by step instruction set for each sub task, so that it can be implemented in the next phase.
+
+create a backend API and front end components to implement the navBar menu items, and create a detailed step by step instruction set to populate nav menu items from the database (tbl_menu_items) , refer Phase 1: for initial navbar.jsx file, and create a detailed step by step instruction set to implement the navBar menu items, and how to connect it with the backend API, and how to populate the menu items from the database (tbl_menu_items) using Django REST Framework.
+DB structure : https://gemini.google.com/app/75866d60cc97ecc2
+Phase 1: https://gemini.google.com/app/4fc230e712859a2e

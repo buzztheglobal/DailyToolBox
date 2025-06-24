@@ -1,0 +1,59 @@
+Refer
+refer 
+1. https://docs.google.com/spreadsheets/d/1xUexeck8t9BYzWDISQgnw-toXuHyE_EaxVORAo1ciZs/edit?usp=sharing; 
+2. https://docs.google.com/spreadsheets/d/1IRpbaNv4aJRqWK6qEmGZyQdE_4TXNi_XmgWcoKm7kws/edit?gid=1718768124#gid=1718768124
+3. https://gemini.google.com/app/fd2ce20e9e2b2d52
+
+attached links (online Tools - GNatt chart), 
+create a single page application - named as a DailyToolbox, (Python and Django, refer Techstack given below), for now create SPA [DailyToolbox] for phase 1, share detailed step by step instruction on how to setup windows dev environment, include  to create a complete backend API, and for front end using React.js, bootstrap 5.3, Material2  code and Project file structure, and how to connect frontend with backend API, and how to deploy the application on Hostinger VPS, and how to integrate Firebase Authentication for user sign-up, login, and session management.
+// This is a detailed instruction set for setting up the DailyToolbox project environment, including both frontend and backend components.
+// It includes steps for creating a complete backend API with Django and connecting it to a React.js frontend, as well as deployment instructions.  
+
+refer doc - online Tools - Environment setup, on how the detailed step by step instruction would look like.
+
+DailyToolbox - Phase 1 [Dev Env - setup]
+
+TechStack:
+
+1. React.js, node-Node.js v20.19.2, bootstrap 5.3 , Material2/Material-UI 
+   - React.js for frontend development
+   - Node.js for package management and development server
+   - Bootstrap 5.3 for responsive design
+   - Material2/Material-UI for UI components
+2. Django version - 5.2.2, Python version 3.13.3 , Django REST Framework 3.16.0, Django PWA 
+   - Django for backend development
+   - Python for server-side logic
+   - Django REST Framework for building APIs
+3. PostgreSQL  - https://docs.google.com/document/d/1oyJAGPm3uZiSDLd5Gi_vL2W_Up2GSWIbIwy2ye2AJbk/edit?tab=t.0 
+   - PostgreSQL for database management
+   - pgAdmin for database administration
+4. Hostinger (VPS)
+5. Firebase Authentication, Firebase Auth, Firebase Firestore 
+   - Firebase for user authentication and session management
+   - Firebase Firestore for real-time database capabilities
+6. OpenAI API / LangChain / Vertex AI / Hugging Face Transformers / Google Gemini
+7. Shopify Embedded SDK / API
+8. Google Analytics, Google GEO Maps, Google Places API, Google Cloud Storage, Google Cloud Functions, Google Cloud Run, Google Cloud Pub/Sub
+9. Django SEO Framework, Schema.org 
+   - Django SEO Framework for search engine optimization
+   - Schema.org for structured data markup
+10. Elasticsearch, Gunicorn + Nginx,
+11. Git/GitHub
+
+refer 
+1. https://docs.google.com/spreadsheets/d/1xUexeck8t9BYzWDISQgnw-toXuHyE_EaxVORAo1ciZs/edit?usp=sharing; 
+2. https://docs.google.com/spreadsheets/d/1IRpbaNv4aJRqWK6qEmGZyQdE_4TXNi_XmgWcoKm7kws/edit?gid=1718768124#gid=1718768124
+3. https://gemini.google.com/app/fd2ce20e9e2b2d52
+
+Phase 1.1:
+use refer above google document structure, and list down detailed step by step instruction to 
+Set up Firebase Authentication: that Integrate Firebase for user sign-up, login, and session management with DailyToolbox
+append https://gemini.google.com/app/75866d60cc97ecc2 to DailyToolbox: Phase 1 Environment Setup
+
+Phase 1.2:
+To be followed after adding tools table tbl_menu_items (https://gemini.google.com/app/75866d60cc97ecc2) in order to create navbar menu (navbar would have : brandName, Home, Tools (as drop down - tbl_menu_items -> drop down items -> list of Tools), convertors (as drop down - tbl_menu_items -> drop down items -> list of convertors), login Avatar. consider tech stack mentioned above. (React.js, Bootstrap 5+, Material2/Material-UI, Django, Python, Django REST Framework, PostgreSQL, Firebase Auth ), create detailed step by step instructions on to have Tools, category navbar menu item (for reference: https://mdbootstrap.com/docs/standard/navigation/navbar/.
+add every minor details while generating phase 1.2 instructions so, code compiles easily and without any issue.
+
+make your instruction sets are detailed (for fronteend, backend, API and for UI), and code shared is compliable for the versions mentioned.
+
+git hub Repo:  https://github.com/buzztheglobal/DailyToolbox
