@@ -1,12 +1,10 @@
 // frontend/src/firebaseConfig.js
-// THIS IS YOUR ACTUAL FIREBASE CLIENT CONFIGURATION
-// Replace with your real Firebase Web App config from Firebase Console -> Project settings -> Your apps -> Web app
+
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-// 1. Import the messaging service
 import { getMessaging } from "firebase/messaging";
 
-
+// Make sure you have replaced these with your actual Firebase project keys
 export const firebaseConfig = {
   apiKey: "AIzaSyD4OLp3L4N7ZUnGt6g7J6kiHOD-QDjMz_Q",
   authDomain: "dailytoolbox-5d842.firebaseapp.com",
@@ -20,14 +18,9 @@ export const firebaseConfig = {
 // Initialize Firebase App
 const app = initializeApp(firebaseConfig);
 
-// Initialize and export Firebase Authentication
+// Initialize and export Firebase services
 const auth = getAuth(app);
-
-// 2. Initialize and export Firebase Cloud Messaging
 const messaging = getMessaging(app);
 
-// 3. Export everything for the rest of your app to use
+// Export everything for the rest of your app to use
 export { app, auth, messaging };
-
-// This export is likely for a different purpose and can be kept or removed
-export const initialAuthToken = null;
