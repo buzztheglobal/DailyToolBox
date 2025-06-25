@@ -58,6 +58,6 @@ Phase 1: https://g.co/gemini/share/aa37a0914942
 pip install django
 pip install firebase-admin
 
- pip install djangorestframework
-  pip install django-cors-headers
-  pip install psycopg2-binary
+pip install djangorestframework
+pip install django-cors-headers
+pip install psycopg2-binary

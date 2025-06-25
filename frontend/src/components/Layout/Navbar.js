@@ -1,6 +1,6 @@
 // frontend/src/components/Layout/Navbar.js
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../contexts/AuthContext'; // Correct path to AuthContext
 import {
   AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem,
   Switch, FormControlLabel, Box, InputBase, Tooltip, Avatar

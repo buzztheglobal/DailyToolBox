@@ -1,10 +1,10 @@
 // frontend/src/App.js
 /* global __firebase_config, __initial_auth_token */
-import React, { useState, useEffect, createContext, useContext } => 'react';
-import './App.css'; // Your main app CSS
-// Material-UI imports for global theme/styling if needed
-import { createTheme, ThemeProvider, CssBaseline } from '@mui/material';
+import React, { useState, useEffect, createContext, useContext } from 'react';
+// import './App.css'; // You can keep this for custom global CSS, or remove if using only MUI
+import { createTheme, ThemeProvider, CssBaseline, GlobalStyles } from '@mui/material'; // Import GlobalStyles
 
+// Import your newly created/updated components
 import Signup from './components/Auth/Signup';
 import Login from './components/Auth/Login';
 import Dashboard from './components/Auth/Dashboard';
@@ -15,7 +15,7 @@ import CardsSection from './components/Content/CardsSection';
 import { Container, Box, Typography, Button, CircularProgress } from '@mui/material';
 
 // Mock Firebase config for Canvas demo. In real app, this comes from firebaseConfig.js
-// Removed firebaseAppMock as it was unused and causing linting warnings.
+// If you are running locally, ensure frontend/src/firebaseConfig.js exists with your actual config.
 const firebaseConfigMock = {
   apiKey: "MOCK_API_KEY",
   authDomain: "MOCK_AUTH_DOMAIN",
@@ -26,7 +26,7 @@ const firebaseConfigMock = {
   measurementId: "MOCK_MEASUREMENT_ID"
 };
 
-// Global access for Firebase (for Canvas execution)
+// Global access for Firebase (for Canvas execution and local setup)
 let auth;
 let db;
 
@@ -34,9 +34,20 @@ let db;
 const initializeFirebase = async () => {
     // __firebase_config and __initial_auth_token are global variables provided by the Canvas environment.
     // ESLint might flag them as 'no-undef', but they are expected to be available at runtime.
-    const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : firebaseConfigMock;
+    // For local development, it will fall back to the imported firebaseConfig.
+    let firebaseConfig;
+    try {
+      // Attempt to import firebaseConfig if running locally
+      const firebaseConfigModule = await import('./firebaseConfig'); // Path is correct for App.js
+      firebaseConfig = firebaseConfigModule.default;
+    } catch (e) {
+      console.warn("firebaseConfig.js not found or failed to import. Using mock config. This is expected in Canvas environment.");
+      firebaseConfig = firebaseConfigMock;
+    }
 
-    const firebaseApp = (await import('https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js')).initializeApp(firebaseConfig);
+    const config = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : firebaseConfig;
+
+    const firebaseApp = (await import('https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js')).initializeApp(config);
     auth = (await import('https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js')).getAuth(firebaseApp);
     db = (await import('https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js')).getFirestore(firebaseApp);
 
@@ -138,6 +149,33 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+// Global CSS styles (for App.js)
+const GlobalCss = () => (
+  <GlobalStyles styles={{
+    body: {
+      margin: 0,
+      padding: 0,
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+      WebkitFontSmoothing: 'antialiased',
+      MozOsxFontSmoothing: 'grayscale',
+      transition: 'background-color 0.3s ease-in-out, color 0.3s ease-in-out',
+    },
+    'body.dark-mode': {
+      backgroundColor: '#121212',
+      color: '#ffffff',
+    },
+    'a': {
+      textDecoration: 'none',
+      color: 'inherit',
+    },
+    'code': {
+      fontFamily: 'source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace',
+    },
+    // Add any other global styles you need here
+  }} />
+);
+
 
 // MainAppContent Component (extracted to use AuthContext correctly)
 function MainAppContent() {
@@ -339,73 +377,3 @@ function App() {
 }
 
 export default App;
-
-// Global CSS for body background and font (for basic styling, could be in index.css)
-// This is added here to ensure it's part of the single immersive.
-// For a production React app, these would typically be in an external CSS file.
-const GlobalCss = () => (
-    <style>{`
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif; /* Using Inter font */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-moz-smoothing: grayscale;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        body.dark-mode {
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-
-        #root {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .App {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        main {
-            flex-grow: 1;
-        }
-        /* Basic Bootstrap-like styling if not using full Bootstrap JS */
-        .container {
-            width: 100%;
-            padding-right: var(--bs-gutter-x,.75rem);
-            padding-left: var(--bs-gutter-x,.75rem);
-            margin-right: auto;
-            margin-left: auto;
-        }
-        @media (min-width: 576px) { .container { max-width: 540px; } }
-        @media (min-width: 768px) { .container { max-width: 720px; } }
-        @media (min-width: 992px) { .container { max-width: 960px; } }
-        @media (min-width: 1200px) { .container { max-width: 1140px; } }
-        @media (min-width: 1400px) { .container { max-width: 1320px; } }
-
-        /* Bootstrap grid system (basic) for responsiveness */
-        .row {
-            --bs-gutter-x: 1.5rem;
-            --bs-gutter-y: 0;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: calc(var(--bs-gutter-y) * -1);
-            margin-right: calc(var(--bs-gutter-x) * -.5);
-            margin-left: calc(var(--bs-gutter-x) * -.5);
-        }
-        .col-md-4 {
-            flex: 0 0 auto;
-            width: 33.33333333%;
-        }
-        .col-12 {
-            flex: 0 0 auto;
-            width: 100%;
-        }
-        .col-sm-6 {
-            flex: 0 0 auto;
-            width: 50%;
-        }
-    `}</style>
-);
