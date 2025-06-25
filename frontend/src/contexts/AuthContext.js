@@ -9,7 +9,7 @@ import {
     GoogleAuthProvider,     // <-- ADDED
     FacebookAuthProvider    // <-- ADDED
 } from "firebase/auth";
-import { auth } from '../firebase/firebaseConfig'; // Your firebase config
+import { auth } from '../firebaseConfig'; // Your firebase config
 
 const AuthContext = React.createContext();
 
