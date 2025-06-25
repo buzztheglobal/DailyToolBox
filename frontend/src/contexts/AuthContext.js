@@ -1,6 +1,6 @@
 // frontend/src/contexts/AuthContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { firebaseConfig, initialAuthToken } from "../firebaseConfig";
+import { firebaseConfig, initialAuthToken } from "../firebase/firebaseConfig";
 // Mock Firebase config for Canvas demo. In real app, this comes from firebaseConfig.js
 const firebaseConfigMock = {
   apiKey: "MOCK_API_KEY",
@@ -16,6 +16,9 @@ const firebaseConfigMock = {
 let auth;
 let db;
 
+firebase.initializeApp(firebaseConfig);
+const token = initialAuthToken;
+
 // Function to initialize Firebase dynamically based on __firebase_config (for Canvas)
 const initializeFirebase = async () => {
     // __firebase_config and __initial_auth_token are global variables provided by the Canvas environment.
@@ -23,7 +26,7 @@ const initializeFirebase = async () => {
     let firebaseConfig;
     try {
       // Attempt to import firebaseConfig if running locally
-      const firebaseConfigModule = await import('../firebaseConfig'); // Adjust path
+      const firebaseConfigModule = await import('../firebase/firebaseConfig'); // Adjust path
       firebaseConfig = firebaseConfigModule.default;
     } catch (e) {
       console.warn("firebaseConfig.js not found or failed to import. Using mock config. This is expected in Canvas environment.");

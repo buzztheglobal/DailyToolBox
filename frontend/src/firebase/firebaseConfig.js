@@ -1,7 +1,7 @@
 // frontend/src/firebaseConfig.js
 // THIS IS YOUR ACTUAL FIREBASE CLIENT CONFIGURATION
 // Replace with your real Firebase Web App config from Firebase Console -> Project settings -> Your apps -> Web app
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyD4OLp3L4N7ZUnGt6g7J6kiHOD-QDjMz_Q",
   authDomain: "dailytoolbox-5d842.firebaseapp.com",
   projectId: "dailytoolbox-5d842",
@@ -11,4 +11,4 @@ const firebaseConfig = {
   measurementId: "G-B6T97GV0Q7"
 };
 
-export default firebaseConfig;
+export const initialAuthToken = null; // or actual initial token

@@ -38,7 +38,7 @@ const initializeFirebase = async () => {
     let firebaseConfig;
     try {
       // Attempt to import firebaseConfig if running locally
-      const firebaseConfigModule = await import('./firebaseConfig'); // Path is correct for App.js
+      const firebaseConfigModule = await import('./firebase/firebaseConfig'); // Path is correct for App.js
       firebaseConfig = firebaseConfigModule.default;
     } catch (e) {
       console.warn("firebaseConfig.js not found or failed to import. Using mock config. This is expected in Canvas environment.");
