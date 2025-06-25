@@ -297,4 +297,3 @@ class MenuItem(models.Model):
         if self.is_deleted and not self.deleted_at:
             self.deleted_at = timezone.now()
         super().save(*args, **kwargs)
-

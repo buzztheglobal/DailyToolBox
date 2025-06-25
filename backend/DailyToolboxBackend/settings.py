@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import os # Make sure this is at the top
 from pathlib import Path
+import firebase_admin
+from firebase_admin import credentials
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -66,6 +68,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -151,3 +154,18 @@ CORS_ALLOWED_ORIGINS = [
 ]
 # Or for simplicity during initial development (BE CAREFUL IN PROD):
 # CORS_ALLOW_ALL_ORIGINS = True
+
+# Initialize Firebase Admin SDK
+try:
+    cred = credentials.Certificate(FIREBASE_SERVICE_ACCOUNT_KEY_PATH)
+    firebase_admin.initialize_app(cred)
+    print("Firebase Admin SDK initialized successfully!")
+except Exception as e:
+    print(f"Error initializing Firebase Admin SDK: {e}")
+    print("Ensure 'firebase-adminsdk.json' is in the backend directory and is valid.")
+
+# Authentication Backends for Firebase
+AUTHENTICATION_BACKENDS = [
+    'core.backends.FirebaseAuthenticationBackend', # Add this line (will create in 0.4)
+    'django.contrib.auth.backends.ModelBackend', # Keep default Django auth
+]

@@ -70,12 +70,12 @@ class MenuItemAdmin(admin.ModelAdmin):
     )
 
     # These fields are automatically managed by Django or save_model, and typically not edited manually
-   # readonly_fields = (
-  #      'created_at', 'updated_at', 'published_at', 'archived_at', 'deleted_at',
+    readonly_fields = (
+        'created_at', 'updated_at', 'published_at', 'archived_at', 'deleted_at',
         # Do NOT include created_by, updated_by, published_by, archived_by, deleted_by, scheduled_by
         # in readonly_fields if you want them to be auto-populated by save_model.
         # Django admin will handle their display automatically when populated.
-  #  )
+    )
 
     # Override save_model to automatically set created_by, updated_by, and handle timestamp logic
     def save_model(self, request, obj, form, change):
@@ -104,4 +104,3 @@ class MenuItemAdmin(admin.ModelAdmin):
 
         # Call the superclass's save_model method to actually save the object
         super().save_model(request, obj, form, change)
-
