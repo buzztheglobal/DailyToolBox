@@ -10,6 +10,8 @@ import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
+import { AuthProvider } from './contexts/AuthContext';
+
 // Create a default theme instance. This is required by ThemeProvider.
 const theme = createTheme();
 
@@ -20,11 +22,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    {/* CORRECT: Wrap the entire App in ThemeProvider and pass the theme object */}
     <ThemeProvider theme={theme}>
-      {/* CssBaseline fixes styling inconsistencies across browsers */}
       <CssBaseline />
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
