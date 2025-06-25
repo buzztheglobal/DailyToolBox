@@ -273,6 +273,6 @@ class MenuItem(models.Model):
 
     def __str__(self):
         return self.title
-
+    
     # Override save method to set created_by/updated_by if user is available (more complex, often done via signals or custom admin save_model)
     # For simplicity, we'll rely on auto_now_add/auto_now and admin.ModelAdmin for created_by/updated_by.

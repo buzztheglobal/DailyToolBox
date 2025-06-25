@@ -1,6 +1,6 @@
 // frontend/src/contexts/AuthContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
-
+import { firebaseConfig, initialAuthToken } from "../firebaseConfig";
 // Mock Firebase config for Canvas demo. In real app, this comes from firebaseConfig.js
 const firebaseConfigMock = {
   apiKey: "MOCK_API_KEY",

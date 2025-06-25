@@ -1,18 +1,31 @@
+// frontend/src/index.tsx
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
-serviceWorkerRegistration.register();
+// CORRECT: Import ThemeProvider and createTheme from Material-UI
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
+// Create a default theme instance. This is required by ThemeProvider.
+const theme = createTheme();
+
+// The '!' or 'as HTMLElement' tells TypeScript that we know this element exists.
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <App />
+    {/* CORRECT: Wrap the entire App in ThemeProvider and pass the theme object */}
+    <ThemeProvider theme={theme}>
+      {/* CssBaseline fixes styling inconsistencies across browsers */}
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
